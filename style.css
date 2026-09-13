@@ -1,0 +1,77 @@
+/* Fondo con luces neón cibernéticas */
+.stApp {
+    background-color: #080711;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(255, 0, 127, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(0, 255, 136, 0.18) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Tarjeta principal estilo cristal */
+.block-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(14, 15, 30, 0.70);
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    max-width: 650px;
+    margin-top: 2rem;
+}
+
+/* Título */
+h1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 0 16px rgba(0, 240, 255, 0.5);
+    font-weight: 800;
+}
+
+/* Textos secundarios */
+.stMarkdown p {
+    color: #E2E8F0 !important;
+    font-size: 1.1rem;
+}
+
+/* Campo de entrada */
+.stTextInput>div>div>input {
+    background-color: rgba(10, 10, 26, 0.6) !important;
+    color: white !important;
+    border: 1px solid rgba(0, 240, 255, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+}
+
+.stTextInput>div>div>input:focus {
+    border-color: #FF0055 !important;
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.5) !important;
+}
+
+/* Botón principal */
+div.stButton > button:first-child {
+    background: linear-gradient(90deg, #FF0055 0%, #7928CA 100%) !important;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 14px;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+    transition: 0.3s;
+    margin-top: 1rem;
+}
+
+div.stButton > button:first-child:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
+}
+
+/* Imagen del QR */
+.stImage img {
+    border-radius: 16px;
+    border: 2px solid rgba(0, 240, 255, 0.3);
+}
