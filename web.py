@@ -5,60 +5,67 @@ from io import BytesIO
 # Configuración de página
 st.set_page_config(page_title="Generador QR", page_icon="⚡", layout="centered")
 
-# CSS: Patrón equilibrado de QRs neón dispersos + Blur ajustado
+# CSS personalizado: QRs Neón Gigantes y Limpios en el Fondo
 st.markdown("""
     <style>
+    /* Fondo oscuro Cyberpunk */
     .stApp {
-        background-color: #080711;
+        background: #080711;
         overflow-x: hidden;
     }
 
-    /* Patrón fluido de QRs neón desenfocados en el fondo */
+    /* QRs gigantes con posiciones fijas e iluminación neón suave */
     .stApp::before {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
         z-index: 0;
         pointer-events: none;
-        opacity: 0.35;
+        opacity: 0.28; /* Opacidad sutil para no distraer */
         background-image: 
-            /* QR Cyan */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-            /* QR Magenta */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 29 29" fill="%23ff007f"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-            /* QR Verde Neón */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>');
-        background-repeat: repeat;
-        background-position: 0 0, 100px 150px, 200px 50px;
-        filter: blur(5px);
+            /* QR Cyan Neón (Izquierda Arriba) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="650" height="650" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+            /* QR Magenta/Fucsia (Derecha Centro) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 29 29" fill="%23ff007f"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+            /* QR Verde Neón (Derecha Abajo) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: 
+            -120px -50px,   /* Cyan en la esquina superior izquierda */
+            115% 30%,       /* Magenta en la derecha */
+            85% 120%;       /* Verde abajo */
+        filter: blur(8px);  /* Blur amplio para crear efecto brillante */
     }
 
-    /* Tarjeta principal estilo cristal translúcido */
+    /* Tarjeta translúcida flotante */
     .block-container {
         position: relative;
         z-index: 1;
-        background: rgba(14, 15, 30, 0.65);
+        background: rgba(14, 15, 30, 0.70);
         padding: 3rem;
         border-radius: 24px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         max-width: 650px;
         margin-top: 2rem;
     }
 
+    /* Título */
     h1 {
         color: #FFFFFF !important;
-        text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         font-weight: 800;
     }
 
+    /* Textos secundarios */
     .stMarkdown p {
         color: #E2E8F0 !important;
         font-size: 1.1rem;
     }
 
+    /* Input de texto */
     .stTextInput>div>div>input {
         background-color: rgba(10, 10, 26, 0.6) !important;
         color: white !important;
@@ -69,9 +76,10 @@ st.markdown("""
 
     .stTextInput>div>div>input:focus {
         border-color: #FF0055 !important;
-        box-shadow: 0 0 10px rgba(255, 0, 85, 0.5) !important;
+        box-shadow: 0 0 12px rgba(255, 0, 85, 0.5) !important;
     }
 
+    /* Botón neón principal */
     div.stButton > button:first-child {
         background: linear-gradient(90deg, #FF0055 0%, #7928CA 100%) !important;
         color: white !important;
@@ -91,6 +99,7 @@ st.markdown("""
         box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
     }
 
+    /* Imagen descargable del QR */
     .stImage img {
         border-radius: 16px;
         border: 2px solid rgba(255, 255, 255, 0.2);
