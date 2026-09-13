@@ -5,47 +5,57 @@ from io import BytesIO
 # Configuración de página
 st.set_page_config(page_title="Generador QR", page_icon="⚡", layout="centered")
 
-# CSS personalizado: Fondo con patrón de QRs coloridos y desenfocados
+# CSS personalizado: Patrón vectorial interno de QRs coloridos de fondo
 st.markdown("""
     <style>
     /* Fondo oscuro base */
     .stApp {
-        background-color: #0a0a1a;
+        background-color: #080711;
+        overflow-x: hidden;
     }
 
-    /* Patrón de QRs neón repetidos y desenfocados */
+    /* Dibujamos QRs gigantes directamente en SVG para evitar enlaces rotos */
     .stApp::before {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
         z-index: 0;
         pointer-events: none;
-        opacity: 0.35;
-        background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop');
-        background-size: 500px auto; /* Tamaño mediano para que se distingan los QRs */
-        background-repeat: repeat;
-        filter: blur(4px); /* Desenfoque ligero */
+        opacity: 0.5;
+        background-image: 
+            /* QR Verde Neón (Izquierda) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+            /* QR Cyan Neón (Derecha Superior) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+            /* QR Magenta Neón (Derecha Inferior) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="380" height="380" viewBox="0 0 29 29" fill="%23ff007f"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: 
+            -50px 20%,      /* Verde */
+            105% 5%,       /* Cyan */
+            95% 85%;       /* Magenta */
+        filter: blur(2px);  /* Desenfoque suave para mantener la forma del QR */
     }
 
     /* Tarjeta translúcida estilo Glassmorphism */
     .block-container {
         position: relative;
         z-index: 1;
-        background: rgba(18, 18, 38, 0.75);
+        background: rgba(15, 15, 32, 0.70);
         padding: 3rem;
         border-radius: 24px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(0, 240, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         max-width: 650px;
         margin-top: 2rem;
     }
 
-    /* Título con glow */
+    /* Título principal */
     h1 {
-        color: #00F0FF !important;
-        text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+        color: #FFFFFF !important;
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
         font-weight: 800;
     }
 
@@ -59,7 +69,7 @@ st.markdown("""
     .stTextInput>div>div>input {
         background-color: rgba(10, 10, 26, 0.6) !important;
         color: white !important;
-        border: 1px solid rgba(0, 240, 255, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 12px !important;
         padding: 12px !important;
     }
@@ -89,10 +99,10 @@ st.markdown("""
         box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
     }
 
-    /* Imagen descargable del QR */
+    /* Imagen generada */
     .stImage img {
         border-radius: 16px;
-        border: 2px solid rgba(0, 240, 255, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.2);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -115,7 +125,7 @@ if st.button("🚀 ¡Generar QR!"):
         qr.add_data(url)
         qr.make(fit=True)
 
-        # Genera el QR estándar (Azul neón sobre fondo oscuro)
+        # Genera el QR estándar
         img = qr.make_image(fill_color="#00F0FF", back_color="#101024")
 
         buffer = BytesIO()
