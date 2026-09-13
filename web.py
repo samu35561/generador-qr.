@@ -5,42 +5,39 @@ from io import BytesIO
 # Configuración de página
 st.set_page_config(page_title="Generador QR", page_icon="⚡", layout="centered")
 
-# CSS personalizado: Fondo de QRs gigantes y desenfocados + tarjeta de cristal translúcida
+# CSS personalizado: Fondo exacto de la imagen con QRs gigantes desenfocados
 st.markdown("""
     <style>
-    /* Capa del fondo con degradados oscuros y Cyberpunk */
+    /* Fondo oscuro base */
     .stApp {
         background: radial-gradient(circle at 20% 30%, #0c0822 0%, #060514 100%);
         overflow-x: hidden;
     }
 
-    /* Generamos varios QR gigantes de fondo con desenfoque y colores vibrantes */
+    /* Patrón exacto de QRs gigantes coloridos desenfocados */
     .stApp::before {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
         z-index: 0;
         pointer-events: none;
-        opacity: 0.35;
+        opacity: 0.45;
         background-image: 
-            /* QR 1 - Magenta arriba izquierda */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 29 29" fill="%23ff007f"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-            /* QR 2 - Verde/Cyan derecha medio */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="550" height="550" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-            /* QR 3 - Verde neón abajo izquierda */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="450" height="450" viewBox="0 0 29 29" fill="%2339ff14"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-            /* QR 4 - Púrpura derecha abajo */
-            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="380" height="380" viewBox="0 0 29 29" fill="%237928ca"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>');
+            /* QR Verde Neón gigante (Izquierda) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 29 29" fill="%2300ff66"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+            /* QR Cyan / Azul neón gigante (Derecha) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+            /* QR Magenta/Morado neón gigante (Abajo) */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="550" height="550" viewBox="0 0 29 29" fill="%23d900ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>');
         background-repeat: no-repeat;
         background-position: 
-            -50px 80px,       /* QR 1 */
-            100% 20%,        /* QR 2 */
-            -80px 75%,       /* QR 3 */
-            85% 90%;         /* QR 4 */
-        filter: blur(5px); /* Desenfoque exacto de fondo */
+            -180px 30%,      /* Verde Neón */
+            115% 10%,       /* Cyan */
+            50% 115%;       /* Magenta */
+        filter: blur(8px);  /* Desenfoque pronunciado */
     }
 
-    /* Tarjeta principal súper translúcida */
+    /* Tarjeta translúcida estilo Glassmorphism */
     .block-container {
         position: relative;
         z-index: 1;
@@ -48,33 +45,26 @@ st.markdown("""
         padding: 3rem;
         border-radius: 24px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        max-width: 680px;
+        max-width: 650px;
         margin-top: 2rem;
     }
 
-    /* Título principal con glow */
+    /* Título principal con brillo neón */
     h1 {
         color: #FFFFFF !important;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
         font-weight: 700;
-        font-size: 2.2rem;
     }
 
-    /* Subtítulo */
+    /* Texto secundario */
     .stMarkdown p {
         color: #CCCCCC !important;
     }
 
-    /* Etiquetas de entradas */
-    label, .stSubheader {
-        color: #FFFFFF !important;
-        font-weight: 500 !important;
-    }
-
-    /* Campos de entrada de texto */
+    /* Entrada de texto */
     .stTextInput>div>div>input {
         background-color: rgba(22, 22, 38, 0.6) !important;
         color: white !important;
@@ -84,27 +74,11 @@ st.markdown("""
     }
 
     .stTextInput>div>div>input:focus {
-        border-color: #00f0ff !important;
-        box-shadow: 0 0 10px rgba(0, 240, 255, 0.3) !important;
+        border-color: #FF0055 !important;
+        box-shadow: 0 0 12px rgba(255, 0, 85, 0.4) !important;
     }
 
-    /* Estilos del subgrupo personalizado */
-    .custom-row {
-        background: rgba(255, 255, 255, 0.04);
-        padding: 1.5rem;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        margin-top: 1rem;
-    }
-
-    /* Input de selección de color */
-    div[data-baseweb="color-input"] {
-        background-color: rgba(22, 22, 38, 0.5) !important;
-        border-radius: 10px !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
-
-    /* Botón Generar QR llamativo (Fucsia neón) */
+    /* Botón principal (Fucsia neón) */
     div.stButton > button:first-child {
         background: linear-gradient(90deg, #FF0055 0%, #A200FF 100%) !important;
         color: white !important;
@@ -124,7 +98,7 @@ st.markdown("""
         box-shadow: 0 6px 30px rgba(255, 0, 85, 0.8);
     }
 
-    /* Vista del QR generado */
+    /* Imagen del QR final */
     .stImage img {
         border-radius: 16px;
         margin-top: 1.5rem;
@@ -133,22 +107,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Título y Subtítulo de la App
 st.title("⚡ Generador de Códigos QR")
 st.write("Crea tu código QR personalizado con un diseño moderno.")
 
-# Entrada de texto (Contenido o enlace del QR)
+# Entrada de texto única
 url = st.text_input("🔗 Contenido o enlace del QR:", value="hola")
-
-# Subtítulo y selector de colores translúcido
-st.write("")
-st.subheader("🎨 Personaliza los colores")
-
-col1, col2 = st.columns(2)
-with col1:
-    fill_color = st.color_picker("Color del QR", "#00F0FF")
-with col2:
-    back_color = st.color_picker("Color del Fondo", "#1B003A")
 
 st.markdown("---")
 
@@ -162,15 +125,13 @@ if st.button("🚀 ¡Generar QR!"):
         qr.add_data(url)
         qr.make(fit=True)
 
-        # Usar los colores personalizados indicados
-        img = qr.make_image(fill_color=fill_color, back_color=back_color)
+        # Genera el QR estándar en blanco y negro
+        img = qr.make_image(fill_color="black", back_color="white")
 
-        # Conversión del código QR a un buffer de bytes
         buffer = BytesIO()
         img.save(buffer, format="PNG")
         byte_im = buffer.getvalue()
 
-        # Mostrar el resultado final
         st.image(byte_im, caption="✨ Tu código QR generado", width=260)
         
         st.download_button(
