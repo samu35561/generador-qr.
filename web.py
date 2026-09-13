@@ -15,8 +15,6 @@ st.write("Crea tu código QR personalizado con un diseño moderno.")
 
 url = st.text_input("🔗 Contenido o enlace del QR:", placeholder="Ej. https://misitio.com")
 
-st.markdown("---")
-
 if st.button("🚀 ¡Generar QR!"):
     if url:
         qr = qrcode.QRCode(version=1, box_size=10, border=4)
