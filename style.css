@@ -1,71 +1,74 @@
-/* Fondo oscuro base */
+/* Fondo oscuro */
 .stApp {
-    background-color: #0d0b18;
+    background-color: #0b0914;
     overflow-x: hidden;
 }
 
-/* QRs Neón Gigantes en Posiciones Precisas */
+/* 4 QRs en las esquinas + QR central procesándose */
 .stApp::before {
     content: "";
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.45; /* Opacidad idéntica a la imagen de referencia */
+    opacity: 0.35;
+    mix-blend-mode: screen;
     background-image: 
-        /* QR Magenta (Izquierda) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 29 29" fill="%23e6007a"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* QR Cyan/Verde (Centro-Derecha) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="650" height="650" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* QR Fucsia Grande (Extremo Derecho) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="750" height="750" viewBox="0 0 29 29" fill="%23ff0055"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>');
+        /* 1. Esquina superior izquierda (Cyan) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 2. Esquina superior derecha (Magenta) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%23e6007a"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 3. Esquina inferior izquierda (Fucsia) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%23ff0055"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 4. Esquina inferior derecha (Verde Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 5. QR CENTRAL EN PROCESO (Mitad sólida + Mitad punteada/digital) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 29 29"><g fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm0 8h7v7H0zm2 2v3h3v-3zm6-18h3v3h-3zm0 6h3v3h-3zm-6 6h3v3H2zm4 0h3v3H6zm-2 4h3v3H4z"/></g><g fill="%23ff0055" opacity="0.4"><path d="M14 0h7v7h-7zm2 2v3h3V2zm-2 8h3v3h-3zm6 0h3v3h-3zm-4 4h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm6 0h3v3h-3zm-8 4h3v3h-3zm4 0h3v3h-3zm4 0h3v3h-3z"/></g></svg>');
+    
     background-repeat: no-repeat;
     background-position: 
-        -150px 40%,    /* Magenta a la izquierda */
-        45% 20%,       /* Cyan/Verde al centro */
-        110% -10%;     /* Fucsia a la derecha */
+        -50px -50px,    /* Arriba Izquierda */
+        calc(100% + 50px) -50px,  /* Arriba Derecha */
+        -50px calc(100% + 50px),  /* Abajo Izquierda */
+        calc(100% + 50px) calc(100% + 50px), /* Abajo Derecha */
+        center center;   /* QR Central en construcción */
+    filter: blur(1px);
 }
 
-/* Tarjeta cristalina limpia */
+/* Tarjeta principal estilo cristal */
 .block-container {
     position: relative;
     z-index: 1;
-    background: rgba(18, 16, 35, 0.75);
+    background: rgba(15, 14, 28, 0.85);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 650px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 620px;
     margin-top: 2rem;
 }
 
-/* Encabezados y textos */
-h1 {
-    color: #FFFFFF !important;
-    font-weight: 800;
-}
+/* Estilos de texto */
+h1 { color: #FFFFFF !important; font-weight: 800; }
+.stMarkdown p { color: #E2E8F0 !important; font-size: 1.05rem; }
 
-.stMarkdown p {
-    color: #E2E8F0 !important;
-    font-size: 1.05rem;
-}
-
-/* Input de texto */
+/* Entrada de texto */
 .stTextInput>div>div>input {
-    background-color: rgba(12, 11, 25, 0.7) !important;
+    background-color: rgba(10, 9, 20, 0.7) !important;
     color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 10px !important;
     padding: 12px !important;
 }
 
-.stTextInput>div>div>input:focus {
-    border-color: #FF0055 !important;
-}
+.stTextInput>div>div>input:focus { border-color: #FF0055 !important; }
 
-/* Botón Neón */
+/* Botón */
 div.stButton > button:first-child {
     background: linear-gradient(90deg, #FF0055 0%, #7928CA 100%) !important;
     color: white !important;
@@ -74,11 +77,7 @@ div.stButton > button:first-child {
     border: none;
     padding: 12px 24px;
     font-size: 16px;
-    width: auto;
     margin-top: 0.5rem;
 }
 
-/* Resultado del QR */
-.stImage img {
-    border-radius: 12px;
-}
+.stImage img { border-radius: 12px; }
