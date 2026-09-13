@@ -5,27 +5,26 @@ from io import BytesIO
 # Configuración de página
 st.set_page_config(page_title="Generador QR", page_icon="⚡", layout="centered")
 
-# CSS personalizado: Fondo con QR desenfocados y tarjeta de cristal translúcida
+# CSS personalizado: Fondo con QRs más grandes y tarjeta translúcida
 st.markdown("""
     <style>
-    /* Fondo que utiliza un patrón de QRs desenfocados y oscurecidos en tonos neón */
+    /* Fondo con imagen de QRs ampliada para que se vean más grandes y claros */
     .stApp {
-        background: linear-gradient(rgba(10, 10, 26, 0.88), rgba(15, 12, 35, 0.9)),
+        background: linear-gradient(rgba(10, 10, 26, 0.70), rgba(15, 12, 35, 0.75)),
                     url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1920&auto=format&fit=crop');
-        background-size: cover;
+        background-size: 1500px auto; /* Amplía los QRs del fondo */
         background-position: center;
         background-attachment: fixed;
-        filter: backdrop-blur(8px); /* Aplica un desenfoque extra al fondo */
     }
 
     /* Tarjeta principal estilo Glassmorphism */
     .block-container {
-        background: rgba(18, 18, 38, 0.75);
+        background: rgba(18, 18, 38, 0.80);
         padding: 3rem;
         border-radius: 24px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(0, 240, 255, 0.25);
         max-width: 650px;
         margin-top: 2rem;
@@ -104,7 +103,7 @@ if st.button("🚀 ¡Generar QR!"):
         qr.add_data(url)
         qr.make(fit=True)
 
-        # Genera el código en su versión llamativa predeterminada (Azul eléctrico sobre fondo oscuro)
+        # Genera el código QR
         img = qr.make_image(fill_color="#00F0FF", back_color="#121226")
 
         # Conversión de la imagen a Bytes
