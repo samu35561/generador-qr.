@@ -3,13 +3,13 @@
     background: transparent !important;
 }
 
-/* 2. Fondo general oscuro */
+/* 2. Fondo general ultra oscuro para máximo contraste con el neón */
 body, .stApp {
-    background-color: #080711 !important;
+    background-color: #040209 !important;
     overflow-x: hidden;
 }
 
-/* 3. Matriz de 13 QRs de fondo con espaciado perfecto (sin cortes) */
+/* 3. Matriz de 13 QRs de fondo VIBRANTES con destello / Glow */
 .stApp::before {
     content: "";
     position: fixed;
@@ -19,50 +19,53 @@ body, .stApp {
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.85;
+    opacity: 0.95;
+    /* Efecto de resplandor neón súper intenso */
+    filter: drop-shadow(0px 0px 8px rgba(0, 240, 255, 0.6)) drop-shadow(0px 0px 14px rgba(255, 0, 128, 0.5));
+    
     background-image: 
-        /* 1. Esquina Sup. Izquierda (Cyan) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300f0ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 2. Superior Centro (Amarillo Neón) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ffee00"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="17" y="9" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 3. Esquina Sup. Derecha (Magenta) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23e6007a"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 4. Lateral Izquierdo (Violeta) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%239d00ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 5. Lateral Derecho (Naranja Neón) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff7700"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 6. Esquina Inf. Izquierda (Fucsia) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff0055"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 7. Inferior Centro (Azul Eléctrico) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%230066ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="17" y="9" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 8. Esquina Inf. Derecha (Verde Neón) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300ff88"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 9. Diagonal Sup Izq Intermedia (Turquesa) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300e5ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 10. Diagonal Sup Der Intermedia (Rosa Pastilla) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff00aa"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 11. Diagonal Inf Izq Intermedia (Verde Menta) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300ffcc"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 12. Diagonal Inf Der Intermedia (Púrpura) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23bd00ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
-        /* 13. QR CENTRAL grande traslúcido */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 25 25"><g fill="%2300f0ff" opacity="0.35"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23080711"/><rect x="2" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23080711"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="5" width="2" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="2" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/></g><g fill="%23ff0055" opacity="0.35"><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23080711"/><rect x="20" y="2" width="3" height="3"/><rect x="13" y="1" width="3" height="2"/><rect x="12" y="5" width="2" height="2"/><rect x="12" y="9" width="3" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="22" y="10" width="2" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="22" y="16" width="3" height="2"/><rect x="13" y="21" width="4" height="3"/></g></svg>');
+        /* 1. Esquina Sup. Izquierda (Cyan Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300f7ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 2. Superior Centro (Amarillo Sol Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ffe600"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="17" y="9" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 3. Esquina Sup. Derecha (Magenta Eléctrico) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff007f"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 4. Lateral Izquierdo (Púrpura Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23a100ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 5. Lateral Derecho (Naranja Fuego) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff5500"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 6. Esquina Inf. Izquierda (Rojo Neón brillante) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff003c"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 7. Inferior Centro (Azul Neón Cyber) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%230070ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="17" y="9" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 8. Esquina Inf. Derecha (Verde Lima Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300ff66"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="13" y="1" width="3" height="2"/><rect x="10" y="5" width="4" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 9. Diagonal Sup Izq Intermedia (Turquesa Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300f0ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 10. Diagonal Sup Der Intermedia (Fucsia Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23ff00b7"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 11. Diagonal Inf Izq Intermedia (Cyan brillante) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%2300ffea"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 12. Diagonal Inf Der Intermedia (Violeta Eléctrico) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 25" fill="%23c300ff"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="9" width="5" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="14" y="16" width="3" height="3"/><rect x="13" y="21" width="4" height="3"/></svg>'),
+        /* 13. QR CENTRAL grande vibrante */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 25 25"><g fill="%2300ffea" opacity="0.45"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="%23040209"/><rect x="2" y="2" width="3" height="3"/><rect x="0" y="18" width="7" height="7"/><rect x="1" y="19" width="5" height="5" fill="%23040209"/><rect x="2" y="20" width="3" height="3"/><rect x="9" y="0" width="2" height="4"/><rect x="10" y="5" width="2" height="2"/><rect x="1" y="9" width="3" height="2"/><rect x="6" y="8" width="2" height="4"/><rect x="10" y="9" width="2" height="2"/><rect x="9" y="13" width="3" height="3"/><rect x="2" y="13" width="4" height="2"/><rect x="10" y="17" width="2" height="4"/></g><g fill="%23ff007f" opacity="0.45"><rect x="18" y="0" width="7" height="7"/><rect x="19" y="1" width="5" height="5" fill="%23040209"/><rect x="20" y="2" width="3" height="3"/><rect x="13" y="1" width="3" height="2"/><rect x="12" y="5" width="2" height="2"/><rect x="12" y="9" width="3" height="2"/><rect x="17" y="9" width="3" height="3"/><rect x="22" y="10" width="2" height="3"/><rect x="14" y="12" width="4" height="2"/><rect x="14" y="16" width="3" height="3"/><rect x="19" y="18" width="2" height="4"/><rect x="22" y="16" width="3" height="2"/><rect x="13" y="21" width="4" height="3"/></g></svg>');
     
     background-repeat: no-repeat;
     background-size: 
-        85px 85px, 85px 85px, 85px 85px, 
-        85px 85px, 85px 85px, 
-        85px 85px, 85px 85px, 85px 85px,
-        70px 70px, 70px 70px, 70px 70px, 70px 70px,
-        320px 320px;
+        90px 90px, 90px 90px, 90px 90px, 
+        90px 90px, 90px 90px, 
+        90px 90px, 90px 90px, 90px 90px,
+        75px 75px, 75px 75px, 75px 75px, 75px 75px,
+        340px 340px;
     background-position: 
         35px 35px,                             /* 1. Sup Izq */
-        center 50px,                           /* 2. Sup Centro (Bajado para evitar la barra de arriba) */
+        center 50px,                           /* 2. Sup Centro */
         calc(100% - 35px) 35px,                /* 3. Sup Der */
         35px center,                           /* 4. Lat Izq */
         calc(100% - 35px) center,              /* 5. Lat Der */
         35px calc(100% - 35px),                /* 6. Inf Izq */
-        center calc(100% - 40px),              /* 7. Inf Centro (Subido para evitar la barra inferior) */
+        center calc(100% - 40px),              /* 7. Inf Centro */
         calc(100% - 35px) calc(100% - 35px),   /* 8. Inf Der */
         21% 28%,                               /* 9. Diag Sup Izq */
         79% 28%,                               /* 10. Diag Sup Der */
@@ -71,46 +74,72 @@ body, .stApp {
         center 40%;                            /* 13. Centro grande */
 }
 
-/* 4. Tarjeta central de cristal traslúcida */
+/* 4. Tarjeta central de cristal con Borde Neón y Sombra Brillante */
 .block-container {
     position: relative;
     z-index: 2;
-    background: rgba(12, 11, 24, 0.65) !important;
-    padding: 2.5rem !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    max-width: 480px !important;
+    background: rgba(10, 6, 22, 0.75) !important;
+    padding: 2.8rem !important;
+    border-radius: 24px !important;
+    /* Borde neón gradiente simulado */
+    box-shadow: 0 0 35px rgba(255, 0, 128, 0.35), 0 0 15px rgba(0, 247, 255, 0.25) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(255, 0, 200, 0.35) !important;
+    max-width: 500px !important;
     margin: 2rem auto !important;
 }
 
 /* Textos */
-h1 { color: #FFFFFF !important; font-weight: 800; }
-.stMarkdown p { color: #E2E8F0 !important; font-size: 1.05rem; }
+h1 { 
+    color: #FFFFFF !important; 
+    font-weight: 900;
+    text-shadow: 0 0 12px rgba(0, 247, 255, 0.6);
+}
+
+.stMarkdown p { 
+    color: #F1F5F9 !important; 
+    font-size: 1.1rem; 
+}
 
 /* Entrada de texto */
 .stTextInput>div>div>input {
-    background-color: rgba(6, 5, 12, 0.85) !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
-    border-radius: 10px !important;
-    padding: 12px !important;
+    background-color: rgba(4, 2, 9, 0.9) !important;
+    color: #FFFFFF !important;
+    border: 2px solid rgba(0, 247, 255, 0.4) !important;
+    border-radius: 12px !important;
+    padding: 14px !important;
+    font-size: 1rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
 }
 
-.stTextInput>div>div>input:focus { border-color: #00f0ff !important; }
+.stTextInput>div>div>input:focus { 
+    border-color: #00f7ff !important; 
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.7) !important;
+}
 
-/* Botón Neón */
+/* Botón Neón Hiper-Llamativo */
 div.stButton > button:first-child {
-    background: linear-gradient(90deg, #FF0055 0%, #7928CA 100%) !important;
+    background: linear-gradient(135deg, #FF0055 0%, #FF5500 50%, #9D00FF 100%) !important;
     color: white !important;
-    font-weight: bold;
-    border-radius: 12px;
+    font-weight: 800;
+    border-radius: 14px;
     border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    margin-top: 0.5rem;
+    padding: 14px 28px;
+    font-size: 18px;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.6), 0 0 10px rgba(255, 85, 0, 0.4) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.stImage img { border-radius: 12px; }
+div.stButton > button:first-child:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255, 0, 85, 0.9), 0 0 18px rgba(0, 247, 255, 0.8) !important;
+}
+
+.stImage img { 
+    border-radius: 16px; 
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.4);
+}
