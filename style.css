@@ -9,7 +9,7 @@ body, .stApp {
     overflow-x: hidden;
 }
 
-/* 3. Matriz de 13 QRs de fondo repartidos por toda la pantalla */
+/* 3. Matriz de 13 QRs de fondo con espaciado perfecto (sin cortes) */
 .stApp::before {
     content: "";
     position: fixed;
@@ -50,28 +50,28 @@ body, .stApp {
     
     background-repeat: no-repeat;
     background-size: 
-        90px 90px, 90px 90px, 90px 90px, 
-        90px 90px, 90px 90px, 
-        90px 90px, 90px 90px, 90px 90px,
-        75px 75px, 75px 75px, 75px 75px, 75px 75px,
+        85px 85px, 85px 85px, 85px 85px, 
+        85px 85px, 85px 85px, 
+        85px 85px, 85px 85px, 85px 85px,
+        70px 70px, 70px 70px, 70px 70px, 70px 70px,
         320px 320px;
     background-position: 
-        20px 20px,                            /* 1. Sup Izq */
-        center 15px,                          /* 2. Sup Centro */
-        calc(100% - 20px) 20px,               /* 3. Sup Der */
-        20px center,                          /* 4. Lat Izq */
-        calc(100% - 20px) center,             /* 5. Lat Der */
-        20px calc(100% - 20px),               /* 6. Inf Izq */
-        center calc(100% - 15px),             /* 7. Inf Centro */
-        calc(100% - 20px) calc(100% - 20px),  /* 8. Inf Der */
-        20% 25%,                              /* 9. Diag Sup Izq */
-        80% 25%,                              /* 10. Diag Sup Der */
-        20% 75%,                              /* 11. Diag Inf Izq */
-        80% 75%,                              /* 12. Diag Inf Der */
-        center 40%;                           /* 13. Centro grande */
+        35px 35px,                             /* 1. Sup Izq */
+        center 50px,                           /* 2. Sup Centro (Bajado para evitar la barra de arriba) */
+        calc(100% - 35px) 35px,                /* 3. Sup Der */
+        35px center,                           /* 4. Lat Izq */
+        calc(100% - 35px) center,              /* 5. Lat Der */
+        35px calc(100% - 35px),                /* 6. Inf Izq */
+        center calc(100% - 40px),              /* 7. Inf Centro (Subido para evitar la barra inferior) */
+        calc(100% - 35px) calc(100% - 35px),   /* 8. Inf Der */
+        21% 28%,                               /* 9. Diag Sup Izq */
+        79% 28%,                               /* 10. Diag Sup Der */
+        21% 72%,                               /* 11. Diag Inf Izq */
+        79% 72%,                               /* 12. Diag Inf Der */
+        center 40%;                            /* 13. Centro grande */
 }
 
-/* 4. Tarjeta central de cristal translúcida */
+/* 4. Tarjeta central de cristal traslúcida */
 .block-container {
     position: relative;
     z-index: 2;
