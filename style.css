@@ -1,10 +1,10 @@
-/* Fondo oscuro base */
+/* Fondo oscuro futurista */
 .stApp {
     background-color: #080711;
     overflow-x: hidden;
 }
 
-/* 4 QRs en las Esquinas + 1 QR Central en Proceso */
+/* Capa de fondo con los 5 QRs perfectamente definidos */
 .stApp::before {
     content: "";
     position: fixed;
@@ -14,59 +14,61 @@
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.55;
-    mix-blend-mode: screen;
+    opacity: 0.7;
     background-image: 
         /* 1. Esquina Superior Izquierda (Cyan) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" fill="%2300f0ff"><path d="M0 0h11v11H0V0zm3 3v5h5V3H3zm2 2h1v1H5V5zm8-5h3v3h-3V0zm4 0h3v3h-3V0zm5 0h11v11H22V0zm3 3v5h5V3h-5zm2 2h1v1h-1V5zm-15 8h3v3h-3v-3zm6 0h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm-16 4h3v3h-3v-3zm4 0h3v3h-3v-3zm8 0h3v3h-3v-3zm-16 4h11v11H0V17zm3 3v5h5v-5H3zm2 2h1v1H5v-1zm8-1h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm2 0h3v3h-3v-3zm-8 4h3v3h-3v-3zm4 0h3v3h-3v-3zm4 0h3v3h-3v-3z"/></svg>'),
         /* 2. Esquina Superior Derecha (Magenta) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%23e6007a"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" fill="%23e6007a"><path d="M0 0h11v11H0V0zm3 3v5h5V3H3zm2 2h1v1H5V5zm8-5h3v3h-3V0zm4 0h3v3h-3V0zm5 0h11v11H22V0zm3 3v5h5V3h-5zm2 2h1v1h-1V5zm-15 8h3v3h-3v-3zm6 0h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm-16 4h3v3h-3v-3zm4 0h3v3h-3v-3zm8 0h3v3h-3v-3zm-16 4h11v11H0V17zm3 3v5h5v-5H3zm2 2h1v1H5v-1zm8-1h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm2 0h3v3h-3v-3zm-8 4h3v3h-3v-3zm4 0h3v3h-3v-3zm4 0h3v3h-3v-3z"/></svg>'),
         /* 3. Esquina Inferior Izquierda (Fucsia) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%23ff0055"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" fill="%23ff0055"><path d="M0 0h11v11H0V0zm3 3v5h5V3H3zm2 2h1v1H5V5zm8-5h3v3h-3V0zm4 0h3v3h-3V0zm5 0h11v11H22V0zm3 3v5h5V3h-5zm2 2h1v1h-1V5zm-15 8h3v3h-3v-3zm6 0h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm-16 4h3v3h-3v-3zm4 0h3v3h-3v-3zm8 0h3v3h-3v-3zm-16 4h11v11H0V17zm3 3v5h5v-5H3zm2 2h1v1H5v-1zm8-1h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm2 0h3v3h-3v-3zm-8 4h3v3h-3v-3zm4 0h3v3h-3v-3zm4 0h3v3h-3v-3z"/></svg>'),
         /* 4. Esquina Inferior Derecha (Verde Neón) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* 5. QR CENTRAL MITAD COMPLETO / MITAD CONSTRUYÉNDOSE */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 29 29"><g fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm0 8h7v7H0zm2 2v3h3v-3zm6-18h3v3h-3zm0 6h3v3h-3zm-6 6h3v3H2zm4 0h3v3H6zm-2 4h3v3H4z"/></g><g fill="%23ff0055" opacity="0.35"><path d="M14 0h7v7h-7zm2 2v3h3V2zm-2 8h3v3h-3zm6 0h3v3h-3zm-4 4h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm6 0h3v3h-3zm-8 4h3v3h-3zm4 0h3v3h-3zm4 0h3v3h-3z"/></g></svg>');
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" fill="%2300ff88"><path d="M0 0h11v11H0V0zm3 3v5h5V3H3zm2 2h1v1H5V5zm8-5h3v3h-3V0zm4 0h3v3h-3V0zm5 0h11v11H22V0zm3 3v5h5V3h-5zm2 2h1v1h-1V5zm-15 8h3v3h-3v-3zm6 0h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm-16 4h3v3h-3v-3zm4 0h3v3h-3v-3zm8 0h3v3h-3v-3zm-16 4h11v11H0V17zm3 3v5h5v-5H3zm2 2h1v1H5v-1zm8-1h3v3h-3v-3zm4 0h3v3h-3v-3zm6 0h3v3h-3v-3zm2 0h3v3h-3v-3zm-8 4h3v3h-3v-3zm4 0h3v3h-3v-3zm4 0h3v3h-3v-3z"/></svg>'),
+        /* 5. QR CENTRAL (Lado Izquierdo Sólido / Lado Derecho en Construcción/Puntos) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><g fill="%2300f0ff"><path d="M0 0h11v11H0V0zm3 3v5h5V3H3zm2 2h1v1H5V5zm-5 12h11v11H0V17zm3 3v5h5v-5H3zm2 2h1v1H5v-1zm8-17h3v3h-3V3zm0 6h3v3h-3V9zm0 6h3v3h-3v-3zm0 6h3v3h-3v-3z"/></g><g fill="%23ff0055" opacity="0.4"><path d="M22 0h11v11H22V0zm3 3v5h5V3h-5zm-6 10h3v3h-3v-3zm6 0h3v3h-3v-3zm-3 4h3v3h-3v-3zm6 0h3v3h-3v-3zm-6 4h3v3h-3v-3zm6 0h3v3h-3v-3zm-3 4h3v3h-3v-3zm3 0h3v3h-3v-3z"/></g></svg>');
     
     background-repeat: no-repeat;
-    background-size: 180px 180px, 180px 180px, 180px 180px, 180px 180px, 280px 280px;
+    background-size: 130px 130px, 130px 130px, 130px 130px, 130px 130px, 320px 320px;
     background-position: 
-        15px 15px,                 /* Arriba Izquierda */
-        calc(100% - 15px) 15px,     /* Arriba Derecha */
-        15px calc(100% - 15px),     /* Abajo Izquierda */
-        calc(100% - 15px) calc(100% - 15px), /* Abajo Derecha */
-        center center;              /* Centro */
+        40px 40px,                   /* Arriba Izquierda */
+        calc(100% - 40px) 40px,       /* Arriba Derecha */
+        40px calc(100% - 40px),       /* Abajo Izquierda */
+        calc(100% - 40px) calc(100% - 40px), /* Abajo Derecha */
+        center center;                /* Centro */
 }
 
-/* Tarjeta cristalina semi-transparente para dejar ver el QR del centro */
+/* Tarjeta principal con transparencia ajustada */
 .block-container {
     position: relative;
     z-index: 1;
-    background: rgba(14, 13, 26, 0.72);
+    background: rgba(12, 11, 24, 0.82);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    max-width: 600px;
+    max-width: 580px;
     margin-top: 2rem;
 }
 
-/* Estilos de texto */
+/* Textos */
 h1 { color: #FFFFFF !important; font-weight: 800; }
 .stMarkdown p { color: #E2E8F0 !important; font-size: 1.05rem; }
 
 /* Campo de entrada */
 .stTextInput>div>div>input {
-    background-color: rgba(8, 7, 16, 0.7) !important;
+    background-color: rgba(6, 5, 12, 0.85) !important;
     color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 10px !important;
     padding: 12px !important;
 }
 
-.stTextInput>div>div>input:focus { border-color: #FF0055 !important; }
+.stTextInput>div>div>input:focus { 
+    border-color: #00f0ff !important; 
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3) !important;
+}
 
 /* Botón Neón */
 div.stButton > button:first-child {
@@ -78,6 +80,7 @@ div.stButton > button:first-child {
     padding: 12px 24px;
     font-size: 16px;
     margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
 }
 
 .stImage img { border-radius: 12px; }
