@@ -1,10 +1,10 @@
-/* Fondo oscuro */
+/* Fondo oscuro base */
 .stApp {
-    background-color: #0b0914;
+    background-color: #080711;
     overflow-x: hidden;
 }
 
-/* 4 QRs en las esquinas + QR central procesándose */
+/* 4 QRs en las Esquinas + 1 QR Central en Proceso */
 .stApp::before {
     content: "";
     position: fixed;
@@ -14,42 +14,42 @@
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.35;
+    opacity: 0.55;
     mix-blend-mode: screen;
     background-image: 
-        /* 1. Esquina superior izquierda (Cyan) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* 2. Esquina superior derecha (Magenta) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%23e6007a"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* 3. Esquina inferior izquierda (Fucsia) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%23ff0055"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* 4. Esquina inferior derecha (Verde Neón) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
-        /* 5. QR CENTRAL EN PROCESO (Mitad sólida + Mitad punteada/digital) */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 29 29"><g fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm0 8h7v7H0zm2 2v3h3v-3zm6-18h3v3h-3zm0 6h3v3h-3zm-6 6h3v3H2zm4 0h3v3H6zm-2 4h3v3H4z"/></g><g fill="%23ff0055" opacity="0.4"><path d="M14 0h7v7h-7zm2 2v3h3V2zm-2 8h3v3h-3zm6 0h3v3h-3zm-4 4h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm6 0h3v3h-3zm-8 4h3v3h-3zm4 0h3v3h-3zm4 0h3v3h-3z"/></g></svg>');
+        /* 1. Esquina Superior Izquierda (Cyan) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 2. Esquina Superior Derecha (Magenta) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%23e6007a"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 3. Esquina Inferior Izquierda (Fucsia) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%23ff0055"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 4. Esquina Inferior Derecha (Verde Neón) */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 29 29" fill="%2300ff88"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm8-10h7v7h-7zm2 2v3h3V2zm10-2h7v7h-7zm2 2v3h3V2zm-12 8h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm8 0h3v3h-3zm-10 6h3v3H0zm4 0h3v3H4zm6 0h3v3h-3zm6 0h3v3h-3zm6-12h3v3h-3zm0 6h3v3h-3zm0 6h3v3h-3zm-14 4h3v3H8zm6 0h3v3h-3zm6 0h3v3h-3zm2-20h3v3h-3zm0 6h3v3h-3zm-10 12h3v3h-3z"/></svg>'),
+        /* 5. QR CENTRAL MITAD COMPLETO / MITAD CONSTRUYÉNDOSE */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 29 29"><g fill="%2300f0ff"><path d="M0 0h7v7H0zm2 2v3h3V2zm0 8h3v3H2zm0 8h7v7H0zm2 2v3h3v-3zm6-18h3v3h-3zm0 6h3v3h-3zm-6 6h3v3H2zm4 0h3v3H6zm-2 4h3v3H4z"/></g><g fill="%23ff0055" opacity="0.35"><path d="M14 0h7v7h-7zm2 2v3h3V2zm-2 8h3v3h-3zm6 0h3v3h-3zm-4 4h3v3h-3zm8 0h3v3h-3zm-6 6h3v3h-3zm6 0h3v3h-3zm-8 4h3v3h-3zm4 0h3v3h-3zm4 0h3v3h-3z"/></g></svg>');
     
     background-repeat: no-repeat;
+    background-size: 180px 180px, 180px 180px, 180px 180px, 180px 180px, 280px 280px;
     background-position: 
-        -50px -50px,    /* Arriba Izquierda */
-        calc(100% + 50px) -50px,  /* Arriba Derecha */
-        -50px calc(100% + 50px),  /* Abajo Izquierda */
-        calc(100% + 50px) calc(100% + 50px), /* Abajo Derecha */
-        center center;   /* QR Central en construcción */
-    filter: blur(1px);
+        15px 15px,                 /* Arriba Izquierda */
+        calc(100% - 15px) 15px,     /* Arriba Derecha */
+        15px calc(100% - 15px),     /* Abajo Izquierda */
+        calc(100% - 15px) calc(100% - 15px), /* Abajo Derecha */
+        center center;              /* Centro */
 }
 
-/* Tarjeta principal estilo cristal */
+/* Tarjeta cristalina semi-transparente para dejar ver el QR del centro */
 .block-container {
     position: relative;
     z-index: 1;
-    background: rgba(15, 14, 28, 0.85);
+    background: rgba(14, 13, 26, 0.72);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    max-width: 620px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    max-width: 600px;
     margin-top: 2rem;
 }
 
@@ -57,18 +57,18 @@
 h1 { color: #FFFFFF !important; font-weight: 800; }
 .stMarkdown p { color: #E2E8F0 !important; font-size: 1.05rem; }
 
-/* Entrada de texto */
+/* Campo de entrada */
 .stTextInput>div>div>input {
-    background-color: rgba(10, 9, 20, 0.7) !important;
+    background-color: rgba(8, 7, 16, 0.7) !important;
     color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 10px !important;
     padding: 12px !important;
 }
 
 .stTextInput>div>div>input:focus { border-color: #FF0055 !important; }
 
-/* Botón */
+/* Botón Neón */
 div.stButton > button:first-child {
     background: linear-gradient(90deg, #FF0055 0%, #7928CA 100%) !important;
     color: white !important;
